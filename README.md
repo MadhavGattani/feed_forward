@@ -95,3 +95,99 @@ Ensure you have the following installed:
 
 ---
 
+### 🧱 MongoDB Setup
+1. Install and start MongoDB locally:
+   ```bash
+   mongod
+2. Default connection used by the app: mongodb://localhost:27017/foodredistributiondb
+
+3. You can change this in: src/main/resources/application.properties
+Example:
+spring.data.mongodb.uri=mongodb://localhost:27017/foodredistributiondb
+server.port=8888
+jwt.secret=YourSecretKeyHere
+
+Running the Application (Eclipse)
+
+🧮 Running the Application (Eclipse)
+
+Open Eclipse → File → Import → Maven → Existing Maven Projects
+
+Select folder:
+C:\Users\madha\eclipse-workspace\foodRed_final
+
+Wait for Maven dependencies to load.
+
+Open the main class:
+com.foodredistribution.FoodRedApplication
+
+Right-click → Run As → Java Application.
+
+The backend starts at:
+
+http://localhost:8888
+
+🌐 API Overview
+Method	Endpoint	Description
+POST	/api/admin/login	Admin login (JWT authentication)
+GET	/api/admin/organizations	Fetch all registered organizations
+GET	/api/admin/donations	Retrieve all food donations
+GET	/api/admin/requests/pending	Get all pending donation requests
+PUT	/api/admin/requests/{id}/approve	Approve a donation request
+PUT	/api/admin/requests/{id}/reject	Reject a donation request
+
+For complete API documentation, refer to controller package or future Swagger integration.
+
+🧑‍💻 How It Works
+
+Donor Login/Register → Fill food details & submit donation.
+
+NGOs Get Notifications → View nearby food donations.
+
+Admin Approves/Rejects Requests → Monitors all donation flows.
+
+Volunteers Collect & Deliver Food → Updates status in real time.
+
+🧾 .env Example (Optional Configuration)
+
+If you plan to use an .env file, create one in the project root:
+
+MONGO_URI=mongodb://localhost:27017/foodredistributiondb
+SERVER_PORT=8888
+JWT_SECRET=YourSecretKey
+
+🚧 Future Enhancements
+
+📱 Mobile app integration (React Native / Flutter).
+
+🌐 Google Maps API for route and distance tracking.
+
+🕒 Donation scheduling & expiry reminders.
+
+📊 Analytics dashboard for admin insights.
+
+🔒 Two-factor authentication for admins and NGOs.
+
+🤝 Contributing
+
+Contributions are welcome! Feel free to fork and enhance!
+To contribute:
+1. Fork the repository.
+2. Create a new branch: git checkout -b feature/new-feature.
+3. Commit your changes: git commit -m "Add new feature".
+4. Push the branch: git push origin feature/new-feature.
+5. Open a Pull Request.
+
+📜 License
+This project is licensed under the MIT License.
+You’re free to use, modify, and distribute this project with attribution.
+
+🌟 Acknowledgements
+Spring Boot – Backend framework.
+MongoDB – Database engine.
+Thymeleaf – Template rendering engine.
+Eclipse IDE– Development environment.
+
+🧡 Support
+If you find this project helpful, please ⭐ star the repository — it really helps support the project!
+
