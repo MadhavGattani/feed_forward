@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="100" cy="100" r="95" fill="white" stroke="black" stroke-width="2"/>
+  <circle cx="100" cy="100" r="70" fill="url(#gradient)"/>
+  <text x="100" y="50" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16">FEED FORWARD</text>
+  <text x="100" y="150" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16">FEED FORWARD</text>
+  <g transform="translate(70,85)">
+    <path d="M30,0 C30,0 60,15 30,30 C0,15 30,0 30,0" fill="white"/>
+    <circle cx="15" cy="15" r="8" fill="white"/>
+  </g>
+  <path d="M40,100 L60,100 M140,100 L160,100" stroke="white" stroke-width="2"/>
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B6B"/>
+      <stop offset="100%" style="stop-color:#9B4DCA"/>
+    </linearGradient>
+  </defs>
+</svg> 

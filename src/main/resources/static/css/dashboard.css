@@ -1,0 +1,143 @@
+/* Dashboard Styles */
+body {
+    font-size: .875rem;
+    background-color: #f8f9fa;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 0 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    background-color: #f8f9fa;
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: #333;
+    padding: .75rem 1rem;
+    border-radius: 0;
+}
+
+.sidebar .nav-link:hover {
+    color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+.sidebar .nav-link.active {
+    color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.sidebar .nav-link i {
+    color: #666;
+    margin-right: 0.5rem;
+}
+
+.sidebar .nav-link.active i {
+    color: #0d6efd;
+}
+
+.organization-profile {
+    padding: 1rem;
+}
+
+/* Main content */
+.dashboard-section {
+    display: none;
+}
+
+.dashboard-section.active {
+    display: block;
+}
+
+main {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+/* Timeline styles */
+.timeline {
+    position: relative;
+    list-style: none;
+    padding-left: 1.5rem;
+    margin: 0;
+}
+
+.timeline:before {
+    content: "";
+    position: absolute;
+    left: 0.25rem;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: #dee2e6;
+}
+
+.timeline-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item:before {
+    content: "";
+    position: absolute;
+    left: -1.5rem;
+    top: 0.25rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #0d6efd;
+}
+
+/* Status badges */
+.badge-available {
+    background-color: #28a745;
+}
+
+.badge-reserved {
+    background-color: #fd7e14;
+}
+
+.badge-collected {
+    background-color: #0d6efd;
+}
+
+.badge-delivered {
+    background-color: #6f42c1;
+}
+
+.badge-expired {
+    background-color: #dc3545;
+}
+
+/* Card hover effect */
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    .sidebar {
+        position: static;
+        height: auto;
+        padding-top: 1rem;
+    }
+    
+    main {
+        padding-top: 1rem;
+    }
+}

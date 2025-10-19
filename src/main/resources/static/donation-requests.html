@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Requests - Food Redistribution</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .status-badge {
+            padding: 0.25em 0.6em;
+            border-radius: 12px;
+            font-size: 0.85em;
+        }
+        .status-pending { background-color: #ffd700; }
+        .status-approved { background-color: #90EE90; }
+        .status-rejected { background-color: #ffcccb; }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Available Donations</h2>
+        <div class="row mb-4">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Donor</th>
+                                <th>Food Type</th>
+                                <th>Quantity</th>
+                                <th>Expiry Date</th>
+                                <th>Location</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="availableDonationsTable">
+                            <!-- Available donations will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <h2>My Requests</h2>
+        <div class="row">
+            <div class="col">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>Request ID</th>
+                                <th>Food Type</th>
+                                <th>Request Date</th>
+                                <th>Status</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody id="myRequestsTable">
+                            <!-- User's requests will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Request Confirmation Modal -->
+    <div class="modal fade" id="requestConfirmModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Confirm Request</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to request this donation?</p>
+                    <div id="donationDetails">
+                        <!-- Donation details will be shown here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="submitRequest()">Submit Request</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/donationRequests.js"></script>
+</body>
+</html> 
