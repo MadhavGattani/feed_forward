@@ -1,34 +1,32 @@
-# ---------- Stage 1 — Build the JAR using Maven + JDK 23 ----------
-FROM maven:3.9.9-eclipse-temurin-23 AS build
+# ---------- Stage 1 — Build using OpenJDK 23 (mvnw will download Maven) ----------
+FROM openjdk:23-jdk AS build
 
-# Set working directory inside container
 WORKDIR /workspace
 
-# Copy Maven files first for build cache optimization
+# Copy maven wrapper files and pom first for caching
 COPY pom.xml mvnw ./
 COPY .mvn .mvn
 
-# Ensure Maven wrapper is executable
+# Make mvnw executable (defensive)
 RUN chmod +x mvnw
 
-# Copy source code
+# Copy source
 COPY src ./src
 
-# Build the project (skip tests for faster build)
+# Build the application (skip tests to speed up)
 RUN ./mvnw -DskipTests clean package
 
 
-# ---------- Stage 2 — Runtime Image with JRE 23 ----------
-FROM eclipse-temurin:23-jre-jammy
+# ---------- Stage 2 — Runtime image (smaller) using OpenJDK 23 slim ----------
+FROM openjdk:23-jdk-slim
 
-# Working directory for the running app
 WORKDIR /app
 
-# Copy the built jar from the previous stage
+# Copy JAR from build stage
 COPY --from=build /workspace/target/*.jar app.jar
 
-# Expose port (Render assigns PORT automatically)
+# Expose port (Render provides PORT env var at runtime)
 EXPOSE 8888
 
-# Run the jar using Render’s PORT environment variable
+# Start the app using Render's PORT variable if available
 ENTRYPOINT ["sh", "-c", "java -Dserver.port=${PORT:-8888} -jar /app/app.jar"]
